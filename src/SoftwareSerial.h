@@ -64,6 +64,18 @@ public:
         // Datasheet https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf,
         // Pinout    https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/_images/esp32-s2_saola1-pinout.jpg
         return (pin >= 1 && pin <= 21) || (pin >= 33 && pin <= 44);
+    #elif CONFIG_IDF_TARGET_ESP32S3
+    // Datasheet https://documentation.espressif.com/esp32-s3_datasheet_en.pdf
+    // Pinout https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/ESP32-S3_DevKitC-1_pinlayout_v1.1.jpg
+    // Pinout https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/ESP32-S3_DevKitC-1_pinlayout.jpg
+    // Board Schematic https://dl.espressif.cn/dl/schematics/SCH_ESP32-S3-DevKitC-1_V1.1_20220413.pdf
+    // Board Schematic https://dl.espressif.cn/dl/SCH_ESP32-S3-DEVKITC-1_V1_20210312C.pdf
+    // The main difference lies in the GPIO assignment for the RGB LED:
+    // the initial version uses GPIO48,
+    // whereas v1.1 uses GPIO38.
+    // so we ignore to use GPIO38 && GPIO48
+		return (pin >= 1 && pin <= 2) || (pin >=4 && pin <= 18) ||
+			(pin ==21) || (pin >= 39 && pin <= 42) || (pin == 47);
     #elif CONFIG_IDF_TARGET_ESP32C3
         // Datasheet https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf,
         // Pinout    https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/_images/esp32-c3-devkitm-1-v1-pinout.jpg
@@ -91,6 +103,8 @@ public:
             && (pin < 34)
     #elif CONFIG_IDF_TARGET_ESP32S2
             && (pin <= 45)
+    #elif CONFIG_IDF_TARGET_ESP32S3
+            // no restrictions
     #elif CONFIG_IDF_TARGET_ESP32C3
             // no restrictions
     #endif

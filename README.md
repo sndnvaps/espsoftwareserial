@@ -28,7 +28,7 @@ ongoing, there will be some inexactness in interrupt timings. This may
 lead to inevitable, but few, bit errors when having heavy data traffic
 at high baud rates.
 
-This library supports ESP8266, ESP32, ESP32-S2 and ESP32-C3 devices.
+This library supports ESP8266, ESP32, ESP32-S2, ESP32S3 and ESP32-C3 devices.
 
 ## Resource optimization
 
