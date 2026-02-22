@@ -1,5 +1,5 @@
 {
-    "name": "EspSoftwareSerial",
+    "name": "Esp_Software_Serial",
     "version": "8.3.0",
     "description": "Implementation of the Arduino software serial for ESP8266/ESP32.",
     "keywords": [

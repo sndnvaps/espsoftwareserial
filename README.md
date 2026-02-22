@@ -2,6 +2,9 @@
 
 ## Implementation of the Arduino software serial library for the ESP8266 / ESP32 family
 
+## Important
+  when got the error of circular_queue.h missing in building. You need to install lib 'ghostl',version: 1.0.1, by Dirk Kaar
+
 This fork implements interrupt service routine best practice.
 In the receive interrupt, instead of blocking for whole bytes
 at a time - voiding any near-realtime behavior of the CPU - only level
